@@ -26,7 +26,7 @@
     <div class="container">
         <div class="slogan1">
             <h1>
-                Trabalhe, estude, jogue com computadores de <span>última geração!</span> <br>
+                Trabalhe, estude e jogue com computadores de <span>última geração!</span> <br>
                 <h6>Acesse agora e conheça nossos planos a partir de R$10,00</h6>
             </h1>
             
@@ -41,7 +41,7 @@
 <div class="about">
     <div class="container">
         <h1>Sobre nós</h1><br>
-        <h2>A <span>Flutua</span> busca democratizar o acesso à tecnologia através do aluguel de computadores na nuvem para todos os tipos de clientes. Com apenas alguns cliques você poderá <span>usufruir o melhor do mundo da tecnologia de forma acessível e simplificada</span>, com qualquer dispositivo em qualquer lugar do mundo, basta estar conectado.</h2>
+        <h2>A <span>Flutua</span> busca democratizar o acesso à tecnologia através do aluguel de computadores na nuvem para todos os tipos de clientes. Com apenas alguns cliques você poderá <span>usufruir o que há de melhor no mundo da tecnologia, de forma acessível e simplificada</span>, utilizando qualquer dispositivo em qualquer lugar do mundo, basta estar conectado.</h2>
     </div>
 </div>
 
@@ -55,21 +55,101 @@
             <div class="box">
                 <img src="images/notebook.png" alt="">
                 <h1>Básico</h1>
-                <h3>Ideal para atividade básicas como trabalhar e estudar</h3>
+                <h3>Ideal para realizar atividades básicas, como trabalhar e estudar de forma eficiente</h3>
+                <span>Tipo do Plano:</span>
+                <select id="tipo_basico" onchange="mostrarPreco()">
+                    <option value="mensal">Mensal</option>
+                    <option value="semanal">Semanal</option>
+                    <option value="diario">Diário</option>
+                </select>
+                <div id="div_basico">R$50.00</div>
+                <button>Quero esse!</button>
             </div>
             <div class="box">
                 <img src="images/gamepad.png" alt="">
                 <h1>Gamer</h1>
                 <h3>Computador para rodar todos os seus jogos com os melhores gráficos</h3>
+                <span>Tipo do Plano:</span>
+                <select id="tipo_gamer" onchange="mostrarPreco()">
+                    <option value="Mensal">Mensal</option>
+                    <option value="semanal">Semanal</option>
+                    <option value="diario">Diário</option>
+                </select>
+                <div id="div_gamer">R$70.00</div>
+                <button>Quero esse!</button>
             </div>
             <div class="box">
                 <img src="images/programming-course.png" alt="">
                 <h1>Avançado</h1>
-                <h3>Focado para atividades profissionais que exijam alto processamento</h3>
+                <h3>Focado para atividades profissionais que exijem alto processamento</h3>
+                <span>Tipo do Plano:</span>
+                <select id="tipo_avancado" onchange="mostrarPreco()">
+                    <option value="mensal">Mensal</option>
+                    <option value="semanal">Semanal</option>
+                    <option value="diario">Diário</option>
+                </select>
+                <div id="div_avancado">R$90.00</div>
+                <button>Quero esse!</button>
             </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer">
+    <div class="container">
+        <div class="copy">
+            <p>Copyright &copy Flutua - Todos os direitos reservados</p>
+        </div>
+        <div class="contact">
+
+            <h3>Contatos</h3>
+            <p>(11) 94557-1785</p>
+            <p>contactFlutua@sptech.school</p>
+            <img src="images/instagram.png" >
+            <img src="images/facebook-app-symbol.png" >
+            <img src="images/twitter.png" >
+            <img src="images/youtube.png" >
+            <img src="images/linkedin.png" >
+
+        </div>
+        <div class="endereco">
+            <h3>Endereço</h3>
+            <p>Rua Haddock Lobo, 595 - Cerqueira César, São Paulo - SP, 01414-001</p>
+
         </div>
 
     </div>
 </div>
 </body>
 </html>
+<script>
+    function mostrarPreco(){
+        if (tipo_basico.value == "diario") {
+            div_basico.innerHTML = "R$10.00"
+        }else if (tipo_basico.value == "semanal") {
+            div_basico.innerHTML = "R$25.00"
+        }else{
+            div_basico.innerHTML = `R$50.00`
+        }
+
+        if (tipo_gamer.value == "diario") {
+            div_gamer.innerHTML = "R$20.00"
+        }else if (tipo_gamer.value == "semanal") {
+            div_gamer.innerHTML = "R$35.00"
+        }else{
+            div_gamer.innerHTML = `R$70.00`
+        }
+
+        if (tipo_avancado.value == "diario") {
+            div_avancado.innerHTML = "R$30.00"
+        }else if (tipo_avancado.value == "semanal") {
+            div_avancado.innerHTML = "R$45.00"
+        }else{
+            div_avancado.innerHTML = `R$90.00`
+        }
+
+
+
+    }
+</script>

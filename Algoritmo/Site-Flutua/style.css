@@ -149,3 +149,75 @@ html {
 .box img{
     width: 100px;
 }
+.box span{
+    font-size: 25px;
+    font-weight: bold;
+
+}
+.box select{
+    background-color: transparent;
+    color: #FDFDFD;
+    font-size: 20px;
+    border-radius: 20px;
+    border-color:  rgb(51, 51, 51);
+    text-align: center;
+    cursor: pointer;
+    
+}
+
+.box option{
+    background-color: rgb(51, 51, 51);
+
+    
+    
+}
+.box div{
+    font-size: 75px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: linear-gradient(to right,#001fff, #8406d6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+}
+.box button{
+    font-size: 20px;
+    /* background-image: linear-gradient(to right,#001fff, #8406d6); */
+    background-color: transparent;
+    border: 2px solid rgb(45, 128, 242);
+    color: #FDFDFD;
+    font-weight: 400;
+    border-radius: 20px;
+    width: 200px;
+    cursor: pointer;
+
+}
+.box button:hover{
+    color: rgb(45, 128, 242);
+    transition: .5s;
+}
+.footer {
+    display: flex;
+    margin-top: 300px;
+    width: 100%;
+    height: 300px;
+    justify-content: space-between;
+}
+.footer .copy{
+    color: rgb(134, 134, 134);
+    font-size: 15px;
+}
+.footer .endereco{
+    color: rgb(134, 134, 134);
+    font-size: 15px;
+}
+.footer .contact{
+    color: rgb(134, 134, 134);
+    font-size: 15px;
+}
+.footer .contact img{
+    width: 18px;
+    filter: invert(75%);
+    margin: 5px;
+    
+}
