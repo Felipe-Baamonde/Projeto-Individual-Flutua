@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flutua</title>
+    <link rel="stylesheet" href="styleForm.css">
+    <link rel="shortcut icon" href="images/cloud.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="logo_login">
+        <img src="images/cloud (1).png">
+        <!-- <span>Flutua</span> -->
+    </div>
+    
+    <div class="formulario">
+        <div class="container">
+            <h1>CADASTRO</h1>
+            <div class="caixa_form">
+            <div class="form">
+                <span>Nome</span>
+                <input type="text" placeholder="Nome" id="nome_cadastro"><br>
+
+                <span>Email:</span>
+                <input type="email" placeholder="example@email.com" id="email_cadastro"><br>  
+                 
+                <span>Senha:</span>
+                <input type="password" placeholder="********" id="senha_cadastro"><br> 
+            </div>
+
+            <div class="form">
+                <span>Data de Nacimento:</span>
+                <input type="date" placeholder="dd/mm/aaaa" id="data_cadastro"><br>
+
+                <span>Confirmar Email:</span>
+                <input type="email" placeholder="example@email.com" id="ConfirmarEmail_cadastro"><br> 
+
+                <span>Confirmar Senha:</span>
+                <input type="password" placeholder="********" id="ConfirmarSenha_cadastro"><br> 
+            </div>
+        </div>
+        <h1>Escolha seu Plano</h1>
+        <div class="select">
+            <select  id="plano_cadastro" onchange="select_cadastro()">
+                <option value="">Plano</option>
+                <option value="basico">Básico</option>
+                <option value="gamer">Gamer</option>
+                <option value="avancado">Avançado</option>
+            </select>
+            <select  id="tipo_cadastro" onchange="select_cadastro()">
+                <option value="">Tipo</option>
+                <option value="diario">Diário</option>
+                <option value="semanal">Semanal</option>
+                <option value="mensal">Mensal</option>
+            </select>
+
+        </div>
+        <div class="form">
+            <button>Cadastrar</button><br><br>
+            <a href="Login.html"><button>ou Logar</button></a>
+
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+<script>
+    var plano = 0
+    function select_cadastro(){
+        plano = plano_cadastro.value
+        tipo = tipo_cadastro.value
+        if (plano == 'basico') {
+            if (tipo == 'diario') {
+                plano = 1
+            }else if(tipo == 'semanal'){
+                plano = 2
+            }else if(tipo == 'mensal'){
+                plano = 3
+            }
+        }
+
+        if (plano == 'gamer') {
+            if (tipo == 'diario') {
+                plano = 4
+            }else if(tipo == 'semanal'){
+                plano = 5
+            }else if(tipo == 'mensal'){
+                plano = 6
+            }
+        }
+
+        if (plano == 'avancado') {
+            if (tipo == 'diario') {
+                plano = 7
+            }else if(tipo == 'semanal'){
+                plano = 8
+            }else if(tipo == 'mensal'){
+                plano = 9
+            }
+        }
+        console.log(plano)
+
+        }
+    
+</script>
