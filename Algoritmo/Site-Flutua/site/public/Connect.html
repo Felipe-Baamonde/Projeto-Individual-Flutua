@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flutua</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="assets/images/cloud.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="Home.html"><img src="assets/images/cloud (1).png"></a>
+                <a href="Home.html"><span>Flutua</span></a>
+            </div>
+            <ul class="sections">
+                <li> <a href="#sobre">Avaliar</a></li>
+                <li> <a href="#footer">Contatos</a></li>
+                <li><a href="index.html">Sair</a> </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="infos">
+        <div class="container">
+            <div class="usuario">
+               <h1>Olá,</h1>
+               <span>usuario</span>
+               <h1>Plano ativo:</h1>
+               <span>Gamer-Mensal</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="connect">
+        <div class="container">
+            <div id="div_ip"></div>
+        </div>
+        
+        <button onclick="MostrarIP()">CONECTAR</button>
+    </div>
+    
+
+
+
+    <div class="footer" id="footer">
+        <div class="container">
+            <div class="copy">
+                <p>Copyright &copy Flutua - Todos os direitos reservados</p>
+            </div>
+            <div class="contact">
+    
+                <h3>Contatos</h3>
+                <p>(11) 94557-1785</p>
+                <p>contactFlutua@sptech.school</p>
+                <img src="assets/images/instagram.png" >
+                <img src="assets/images/facebook-app-symbol.png" >
+                <img src="assets/images/twitter.png" >
+                <img src="assets/images/youtube.png" >
+                <img src="assets/images/linkedin.png" >
+    
+            </div>
+            <div class="endereco">
+                <h3>Endereço</h3>
+                <p>Rua Haddock Lobo, 595 - Cerqueira César, São Paulo - SP, 01414-001</p>
+    
+            </div>
+</body>
+</html>
+<script>
+    function MostrarIP(){
+        div_ip.innerHTML = `
+        <span>Copie e cole esse endereço ip e boa sessão :) </span>
+        <span>IP: 192.168.0.1</span>
+        
+        `
+    }
+</script>

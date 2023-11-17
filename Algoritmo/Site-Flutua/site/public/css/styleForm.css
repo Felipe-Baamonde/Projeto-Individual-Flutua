@@ -1,0 +1,168 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(23, 23, 26);
+    background-image: url(../assets/images/backgroudFlutua.png);
+    background-size: 100%;
+}
+
+.logo_login{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+.logo_login img{
+    width: 300px;
+}
+.logo_login a{
+    text-decoration: none;
+}
+.logo_login span{
+    position: relative;
+    top: 20px;
+    right: 230px;
+    font-size: 60px;
+    font-weight: bold;
+    color: #FDFDFD;
+    text-shadow: 0px 0px 3px black;
+    
+}
+
+.formulario{
+    display: flex;
+    width: 100%;
+    flex-direction: row-reverse;
+}
+.formulario .container{
+    display: flex;
+    width: 600px;
+    height: 100%;
+    margin: auto;
+    color: #FDFDFD;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(36, 36, 42);
+    border-radius: 50px;
+    flex-direction: column;
+    
+
+}
+.caixa_form{
+    display: flex;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    justify-content: space-evenly;
+    height: auto;
+}
+
+.form{
+    flex-direction: column;
+    border-radius: 30px;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 25px;
+
+}
+.form span{
+    display: flex;
+    margin-top: 15px;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: 500;
+}
+.form input{
+    background-color: #FDFDFD;
+    border: 3px solid rgb(45, 128, 242);
+    color: black;
+    font-weight: bold;
+    border-radius: 20px;
+    width: 200px;
+    cursor: pointer;
+    padding: 7px;
+}
+.select{
+    margin-bottom: 30px;
+}
+.select select{
+    background-color: transparent;
+    color: #FDFDFD;
+    font-size: 20px;
+    border-radius: 20px;
+    border-color:  rgb(51, 51, 51);
+    text-align: center;
+    cursor: pointer;
+    
+}
+
+.select option{
+    background-color: rgb(51, 51, 51);
+
+    
+    
+}
+
+.form button{
+    font-size: 20px;
+    /* background-image: linear-gradient(to right,#001fff, #8406d6); */
+    background-color: transparent;
+    border: 3px solid rgb(45, 128, 242);
+    color: #FDFDFD;
+    font-weight: 400;
+    border-radius: 20px;
+    width: 200px;
+    cursor: pointer;
+
+}
+.form a{
+    text-decoration: none;
+    list-style: none;
+    color: #FDFDFD;
+}
+.form button:hover, a:hover{
+    color: rgb(45, 128, 242);
+    transition: .5s;
+}
+.form button:active, a:active {
+    background-color: rgb(45, 128, 242);  
+    transition: background 0s;
+    color: #FDFDFD;
+}
+.container h1{
+    color: rgb(45, 128, 242);
+}
+
+.loading-div {
+    width: 50px;
+    display: none;
+  }
+  
+  .loading-div img {
+    height: 50px;
+    width: 50px;
+  }
+  
+  #div_erros_login {
+    display: none
+  }
+  
+  .alerta_erro{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .card_erro {
+    /* display: none; */
+   background-color: transparent;
+   text-align: center;
+   color: rgb(222, 9, 109);
+  }
+  
+  .card_erro #mensagem_erro{
+    font-weight: 500;
+    font-size: 20px;
+  }

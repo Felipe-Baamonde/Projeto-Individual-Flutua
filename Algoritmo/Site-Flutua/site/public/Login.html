@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flutua</title>
+    <script src="./js/sessao.js"></script>
+    <link rel="stylesheet" href="css/styleForm.css">
+    <link rel="shortcut icon" href="assets/images/cloud.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="logo_login">
+        <img src="assets/images/cloud (1).png">
+        <!-- <span>Flutua</span> -->
+    </div>
+
+    <div class="formulario">
+        <div class="container">
+            <h1>LOGIN</h1>
+            <div class="caixa_form">
+                <div class="form">
+                <span>Email:</span>
+                <input type="email" placeholder="Seu email" id="email_login"><br>
+                <span>Senha:</span>
+                <input type="password" placeholder="********" id="senha_login"><br><br>
+
+                    <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                  <span id="mensagem_erro"></span>
+                </div>
+              </div>
+
+                <div class="form">
+                    <button onclick="entrar()">Entrar</button><br>
+                    <button><a href="Cadastro.html">ou cadastre-se</a></button>
+
+                </div>
+
+                
+            </div>
+
+            </div>
+
+        </div>
+    </div>
+    
+</body>
+</html>
+<script>
+    function entrar() {
+        // aguardar();
+
+        var emailVar = email_login.value;
+        var senhaVar = senha_login.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Email ou Senha incorretos!";
+            // finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    // sessionStorage.CPF_USUARIO = json.cpf;
+                    sessionStorage.ID_USUARIO = json.planoId
+                    // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+
+                    setTimeout(function () {
+                        window.location = "./Connect.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    // finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>

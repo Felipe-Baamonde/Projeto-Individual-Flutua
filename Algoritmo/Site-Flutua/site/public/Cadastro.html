@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flutua</title>
+    <script src="./js/sessao.js"></script>
+    <link rel="stylesheet" href="css/styleForm.css">
+    <link rel="shortcut icon" href="assets/images/cloud.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+</head>
+<body>
+    <div class="logo_login">
+        <img src="assets/images/cloud (1).png">
+        <!-- <span>Flutua</span> -->
+    </div>
+    
+    <div class="formulario">
+        <div class="container">
+            <h1>CADASTRO</h1>
+            <div class="caixa_form">
+            <div class="form">
+                <span>Nome</span>
+                <input type="text" placeholder="Nome" id="nome_cadastro"><br>
+
+                <span>Email:</span>
+                <input type="email" placeholder="example@email.com" id="email_cadastro"><br>  
+                 
+                <span>Senha:</span>
+                <input type="password" placeholder="********" id="senha_cadastro"><br> 
+            </div>
+
+            <div class="form">
+                <span>Data de Nacimento:</span>
+                <input type="date" placeholder="dd/mm/aaaa" id="data_cadastro"><br>
+
+                <span>Confirmar Email:</span>
+                <input type="email" placeholder="example@email.com" id="ConfirmarEmail_cadastro"><br> 
+
+                <span>Confirmar Senha:</span>
+                <input type="password" placeholder="********" id="ConfirmarSenha_cadastro"><br> 
+            </div>
+        </div>
+        <div class="alerta_erro">
+          <div class="card_erro" id="cardErro">
+            <span id="mensagem_erro"></span>
+          </div>
+        </div>
+        <h1>Escolha seu Plano</h1>
+        <div class="select">
+            <select  id="plano_cadastro" onchange="select_cadastro()">
+                <option value="">Plano</option>
+                <option value="basico">Básico</option>
+                <option value="gamer">Gamer</option>
+                <option value="avancado">Avançado</option>
+            </select>
+            <select  id="tipo_cadastro" onchange="select_cadastro()">
+                <option value="">Tipo</option>
+                <option value="diario">Diário</option>
+                <option value="semanal">Semanal</option>
+                <option value="mensal">Mensal</option>
+            </select>
+
+        </div>
+        <div class="form">
+            <button onclick="Cadastrar()">Cadastrar</button><br><br>
+            <a href="Login.html"><button>ou Logar</button></a>
+            <div id="div_aguardar" class="loading-div">
+              <img src="./assets/circle-loading.gif" id="loading-gif" />
+            </div>
+           
+
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+<script>
+    var plano = 0
+    function select_cadastro(){
+        plano = plano_cadastro.value
+        tipo = tipo_cadastro.value
+        if (plano == 'basico') {
+            if (tipo == 'diario') {
+                plano = 1
+            }else if(tipo == 'semanal'){
+                plano = 2
+            }else if(tipo == 'mensal'){
+                plano = 3
+            }
+        }
+
+        if (plano == 'gamer') {
+            if (tipo == 'diario') {
+                plano = 4
+            }else if(tipo == 'semanal'){
+                plano = 5
+            }else if(tipo == 'mensal'){
+                plano = 6
+            }
+        }
+
+        if (plano == 'avancado') {
+            if (tipo == 'diario') {
+                plano = 7
+            }else if(tipo == 'semanal'){
+                plano = 8
+            }else if(tipo == 'mensal'){
+                plano = 9
+            }
+        }
+        console.log(plano)
+
+        }
+
+        function Cadastrar(){
+            mensagem_erro.innerHTML = ""
+    aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = nome_cadastro.value;
+    var emailVar = email_cadastro.value;
+    var dataVar = data_cadastro.value;
+    var senhaVar = senha_cadastro.value;
+    var confirmacaoSenhaVar = ConfirmarSenha_cadastro.value;
+    var confirmacaoEmailVar = ConfirmarEmail_cadastro.value;
+    if (nomeVar == "" || nomeVar.length < 1 ){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML +=
+        "O nome deve ter pelo menos 1 letra<br>";
+
+      finalizarAguardar();
+      return false;
+    }
+    else if(emailVar == "" || emailVar.indexOf('@') < 0 || emailVar.indexOf('.com') < 0) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML +=
+        "Email precisa ter @ e .com <br>";
+
+      finalizarAguardar();
+      return false;
+    }
+    else if(dataVar == "" ){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML +=
+        "Digite uma data válida";
+
+      finalizarAguardar();
+      return false;
+    }
+    else if(senhaVar == "" || senhaVar.length < 6){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML +=
+        "A senha precisa ter pelo menos 6 caracteres <br>";
+
+      finalizarAguardar();
+      return false;
+    }
+    else if(confirmacaoSenhaVar == "" || confirmacaoSenhaVar.length < 6 || confirmacaoSenhaVar != senhaVar){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML +=
+        "As duas senhas precisam ser iguais <br>";
+
+      finalizarAguardar();
+      return false;
+    }
+    else if(confirmacaoEmailVar == "" || confirmacaoEmailVar != emailVar){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML +=
+        "Os dois emails precisam ser iguais";
+
+      finalizarAguardar();
+      return false;
+    }
+    else if(plano <= 0 || plano > 9){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML +=
+        "Selecione um plano";
+
+      finalizarAguardar();
+      return false;
+    }
+    
+    else {
+      setInterval(sumirMensagem, 5000);
+    }
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        dataServer: dataVar,
+        senhaServer: senhaVar,
+        planoServer: plano
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "Login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+
+
+        
+    
+</script>
