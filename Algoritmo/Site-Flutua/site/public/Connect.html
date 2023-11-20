@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flutua</title>
+    <script src="./js/sessao.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="assets/images/cloud.ico" type="image/x-icon">
 </head>
@@ -11,8 +12,8 @@
     <div class="header">
         <div class="container">
             <div class="logo">
-                <a href="Home.html"><img src="assets/images/cloud (1).png"></a>
-                <a href="Home.html"><span>Flutua</span></a>
+                <a href="index.html"><img src="assets/images/cloud (1).png"></a>
+                <a href="index.html"><span>Flutua</span></a>
             </div>
             <ul class="sections">
                 <li> <a href="#sobre">Avaliar</a></li>
@@ -26,9 +27,9 @@
         <div class="container">
             <div class="usuario">
                <h1>Olá,</h1>
-               <span>usuario</span>
+               <span id="b_usuario">usuario</span>
                <h1>Plano ativo:</h1>
-               <span>Gamer-Mensal</span>
+               <span id="plano_usuario">plano</span>
             </div>
         </div>
     </div>
@@ -39,6 +40,21 @@
         </div>
         
         <button onclick="MostrarIP()">CONECTAR</button>
+    </div>
+
+    <div class="avaliar">
+            <h1>Avalie seu plano</h1>
+            <div class="rating">
+                <input type="radio" name="star" id="star1"><label for="star1"></label>
+                <input type="radio" name="star" id="star2"><label for="star2"></label>
+                <input type="radio" name="star" id="star3"><label for="star3"></label>
+                <input type="radio" name="star" id="star4"><label for="star4"></label>
+                <input type="radio" name="star" id="star5"><label for="star5"></label>
+        </div>
+        <div class="mensagem">
+            <input type="text" id="titulo" placeholder="Título"><br>
+            <input type="text" id="mensagem" placeholder="Mensagem">
+        </div>
     </div>
     
 
@@ -69,6 +85,28 @@
 </body>
 </html>
 <script>
+      b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+      if (sessionStorage.ID_USUARIO == 1) {
+        plano_usuario.innerHTML = 'Básico-Diário'
+    }
+    else if (sessionStorage.ID_USUARIO == 2) {
+        plano_usuario.innerHTML = 'Básico-Semanal'
+    }else if (sessionStorage.ID_USUARIO == 3) {
+        plano_usuario.innerHTML ='Básico-Mensal'
+    }else if (sessionStorage.ID_USUARIO == 4) {
+        plano_usuario.innerHTML = 'Gamer-Diário'
+    }else if (sessionStorage.ID_USUARIO == 5) {
+        plano_usuario.innerHTML = 'Gamer-Semanal'
+    }else if (sessionStorage.ID_USUARIO == 6) {
+        plano_usuario.innerHTML = 'Gamer-Mensal'
+    }else if (sessionStorage.ID_USUARIO == 7) {
+        plano_usuario.innerHTML = 'Avançado-Diário'
+    }else if (sessionStorage.ID_USUARIO == 8) {
+        plano_usuario.innerHTML = 'Avançado-Semanal'
+    }else if (sessionStorage.ID_USUARIO == 9) {
+        plano_usuario.innerHTML = 'Avançado-Mensal'
+    }
     function MostrarIP(){
         div_ip.innerHTML = `
         <span>Copie e cole esse endereço ip e boa sessão :) </span>

@@ -313,3 +313,15 @@ html {
     width: 80%;
     text-align:center;
 }
+
+.avaliar{
+    display: flex;
+    color: #fff;
+    flex-direction: column;
+    margin-top: 200px;
+    text-align: center;
+
+    width: 100%;
+    height: 400px;
+
+}
