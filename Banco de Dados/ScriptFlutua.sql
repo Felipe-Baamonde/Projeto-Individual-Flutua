@@ -26,6 +26,15 @@ senha varchar(45),
 fk_idPlanoUsuario int,
 foreign key (fk_idPlanoUsuario) references Plano(idPlano));
 
+create table Avaliacao (
+idAvaliacao int primary key auto_increment,
+qtdEstrelas int,
+mensagem varchar(200),
+fk_idUsuario int,
+foreign key (fk_idUsuario) references Usuario(idUsuario));
+
+
+
 
 
 
