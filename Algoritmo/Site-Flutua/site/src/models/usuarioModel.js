@@ -22,7 +22,24 @@ function cadastrar(nome, email, dataNasc, senha, planoId) {
     return database.executar(instrucao);
 }
 
+// Função para cadastrar a avaliacao no banco -- DESENVOLVER!
+function cadastrarAvaliacao(qtdEstrelas, mensagem_avaliacao, idUsuario){
+    var instrucao = `
+            INSERT INTO avaliacao (qtdEstrelas, mensagem, fk_idUsuario) values (${qtdEstrelas}, '${mensagem_avaliacao}', ${idUsuario})
+    `;
+    return database.executar(instrucao);
+}
+
+function VerAvaliacao(){
+    var instrucao = `
+    SELECT usuario.nome, qtdEstrelas, mensagem from Avaliacao join usuario on fk_idUsuario = idUsuario;
+    `;
+    return database.executar(instrucao);
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    cadastrarAvaliacao,
+    VerAvaliacao
 };

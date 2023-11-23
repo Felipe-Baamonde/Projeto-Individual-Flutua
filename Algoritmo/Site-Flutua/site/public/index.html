@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="assets/images/cloud.ico" type="image/x-icon">
     <script src="./js/sessao.js"></script>
+    <script src="js/cadastro.js"></script>
 </head>
 <body>
     <div class="header">
@@ -125,51 +126,16 @@
 </body>
 </html>
 <script>
-    function mostrarPreco(){
-        if (tipo_basico.value == "diario") {
-            div_basico.innerHTML = "R$10.00"
-        }else if (tipo_basico.value == "semanal") {
-            div_basico.innerHTML = "R$25.00"
-        }else{
-            div_basico.innerHTML = `R$50.00`
-        }
-
-        if (tipo_gamer.value == "diario") {
-            div_gamer.innerHTML = "R$20.00"
-        }else if (tipo_gamer.value == "semanal") {
-            div_gamer.innerHTML = "R$35.00"
-        }else{
-            div_gamer.innerHTML = `R$70.00`
-        }
-
-        if (tipo_avancado.value == "diario") {
-            div_avancado.innerHTML = "R$30.00"
-        }else if (tipo_avancado.value == "semanal") {
-            div_avancado.innerHTML = "R$45.00"
-        }else{
-            div_avancado.innerHTML = `R$90.00`
-        }
-
-
-
-    }
-
-    function queroBasico(){
-        if (tipo_basico.value == "diario") {
-            
-        }else if (tipo_basico.value == "semanal") {
-            
-        }else{
-           
-            
-        }
-    }
-
-    function queroGamer(){
-
-    }
-
-    function queroAvançado(){
-
+    function mostrarAvaliacoes(){
+        fetch("/usuarios/VerAvaliacao", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        })
     }
 </script>

@@ -16,7 +16,7 @@
                 <a href="index.html"><span>Flutua</span></a>
             </div>
             <ul class="sections">
-                <li> <a href="#sobre">Avaliar</a></li>
+                <li> <a href="#avaliacao">Avaliar</a></li>
                 <li> <a href="#footer">Contatos</a></li>
                 <li><a href="index.html">Sair</a> </li>
             </ul>
@@ -42,18 +42,18 @@
         <button onclick="MostrarIP()">CONECTAR</button>
     </div>
 
-    <div class="avaliar">
+    <div class="avaliar" id="avaliacao">
             <h1>Avalie seu plano</h1>
             <div class="rating">
-                <input type="radio" name="star" id="star1"><label for="star1"></label>
-                <input type="radio" name="star" id="star2"><label for="star2"></label>
-                <input type="radio" name="star" id="star3"><label for="star3"></label>
-                <input type="radio" name="star" id="star4"><label for="star4"></label>
-                <input type="radio" name="star" id="star5"><label for="star5"></label>
+                <input type="radio" name="star" value="1" id="star1"><label for="star1"></label>
+                <input type="radio" name="star" value="2" id="star2"><label for="star2"></label>
+                <input type="radio" name="star" value="3" id="star3"><label for="star3"></label>
+                <input type="radio" name="star" value="4" id="star4"><label for="star4"></label>
+                <input type="radio" name="star" value="5" id="star5"><label for="star5"></label>
         </div>
         <div class="mensagem">
-            <input type="text" id="titulo" placeholder="Título"><br>
-            <input type="text" id="mensagem" placeholder="Mensagem">
+            <input type="text" id="input_mensagem" placeholder="Mensagem">
+            <button onclick="Avaliar()">Avaliar</button>
         </div>
     </div>
     
@@ -86,25 +86,27 @@
 </html>
 <script>
       b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+      idUsuario = sessionStorage.ID_USUARIO;
 
-      if (sessionStorage.ID_USUARIO == 1) {
+
+      if (sessionStorage.ID_PLANO == 1) {
         plano_usuario.innerHTML = 'Básico-Diário'
     }
-    else if (sessionStorage.ID_USUARIO == 2) {
+    else if (sessionStorage.ID_PLANO == 2) {
         plano_usuario.innerHTML = 'Básico-Semanal'
-    }else if (sessionStorage.ID_USUARIO == 3) {
+    }else if (sessionStorage.ID_PLANO == 3) {
         plano_usuario.innerHTML ='Básico-Mensal'
-    }else if (sessionStorage.ID_USUARIO == 4) {
+    }else if (sessionStorage.ID_PLANO == 4) {
         plano_usuario.innerHTML = 'Gamer-Diário'
-    }else if (sessionStorage.ID_USUARIO == 5) {
+    }else if (sessionStorage.ID_PLANO == 5) {
         plano_usuario.innerHTML = 'Gamer-Semanal'
-    }else if (sessionStorage.ID_USUARIO == 6) {
+    }else if (sessionStorage.ID_PLANO == 6) {
         plano_usuario.innerHTML = 'Gamer-Mensal'
-    }else if (sessionStorage.ID_USUARIO == 7) {
+    }else if (sessionStorage.ID_PLANO == 7) {
         plano_usuario.innerHTML = 'Avançado-Diário'
-    }else if (sessionStorage.ID_USUARIO == 8) {
+    }else if (sessionStorage.ID_PLANO == 8) {
         plano_usuario.innerHTML = 'Avançado-Semanal'
-    }else if (sessionStorage.ID_USUARIO == 9) {
+    }else if (sessionStorage.ID_PLANO == 9) {
         plano_usuario.innerHTML = 'Avançado-Mensal'
     }
     function MostrarIP(){
@@ -113,5 +115,23 @@
         <span>IP: 192.168.0.1</span>
         
         `
+    }
+
+    function Avaliar(){
+        var qtdEstrelasVar = 0
+        var mensagem_avaliacaoVar = input_mensagem.value
+        
+        fetch("/usuarios/cadastrarAvaliacao", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                qtdEstrelasServer: qtdEstrelasVar,
+                mensagem_avaliacaoServer: mensagem_avaliacaoVar,
+                idUsuarioServer: idUsuario
+            })
+        })
+
     }
 </script>

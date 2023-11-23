@@ -77,7 +77,38 @@ function cadastrar(req, res) {
     }
 }
 
+function cadastrarAvaliacao(req, res){
+    var qtdEstrelas = req.body.qtdEstrelasServer;
+    var mensagem_avaliacao =  req.body.mensagem_avaliacaoServer;
+    var idUsuario =  req.body.idUsuarioServer;
+
+    // if (qtdEstrelas == 0 || mensagem_avaliacao == '' ) {
+    //     alert("Escolha alguma estrela e escreva uma mensagem!")
+    // }else{
+        usuarioModel.cadastrarAvaliacao(qtdEstrelas,  mensagem_avaliacao, idUsuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+
+    }
+// }
+
+// Funcao ver Avaliacao
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    cadastrarAvaliacao,
+    // VerAvaliacao
 }
