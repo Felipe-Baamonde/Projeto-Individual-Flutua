@@ -30,7 +30,7 @@ create table Avaliacao (
 idAvaliacao int primary key auto_increment,
 qtdEstrelas int,
 mensagem varchar(200),
-fk_idUsuario int,
+fk_idUsuario int unique,
 foreign key (fk_idUsuario) references Usuario(idUsuario));
 
 
