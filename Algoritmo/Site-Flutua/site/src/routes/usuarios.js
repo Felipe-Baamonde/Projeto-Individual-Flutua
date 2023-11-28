@@ -13,7 +13,7 @@ router.post("/autenticar", function (req, res) {
 router.post("/cadastrarAvaliacao", function (req, res) {
     usuarioController.cadastrarAvaliacao(req, res);
 });
-router.post("/VerAvaliacao", function (req, res) {
+router.get("/VerAvaliacao", function (req, res) {
     usuarioController.VerAvaliacao(req, res);
 });
 

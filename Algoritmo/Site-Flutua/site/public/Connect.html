@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flutua</title>
     <script src="./js/sessao.js"></script>
+    <script src="./js/funcoes.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="assets/images/cloud.ico" type="image/x-icon">
 </head>
@@ -44,12 +45,21 @@
 
     <div class="avaliar" id="avaliacao">
             <h1>Avalie seu plano</h1>
-            <div class="rating">
-                <input type="radio" name="star" value="1" id="star1"><label for="star1"></label>
-                <input type="radio" name="star" value="2" id="star2"><label for="star2"></label>
-                <input type="radio" name="star" value="3" id="star3"><label for="star3"></label>
-                <input type="radio" name="star" value="4" id="star4"><label for="star4"></label>
-                <input type="radio" name="star" value="5" id="star5"><label for="star5"></label>
+            <div class="estrelas">
+                <a href="javascript:void(0)" onclick="escolhaEstrelas(1)">
+                    <img src="assets/images/star.png" id="s1"></a>
+                    
+                    <a href="javascript:void(0)" onclick="escolhaEstrelas(2)">
+                    <img src="assets/images/star.png" id="s2"></a>
+                    
+                    <a href="javascript:void(0)" onclick="escolhaEstrelas(3)">
+                    <img src="assets/images/star.png" id="s3"></a>
+                    
+                    <a href="javascript:void(0)" onclick="escolhaEstrelas(4)">
+                    <img src="assets/images/star.png" id="s4"></a>
+                    
+                    <a href="javascript:void(0)" onclick="escolhaEstrelas(5)">
+                    <img src="assets/images/star.png" id="s5"></a>
         </div>
         <div class="mensagem">
             <input type="text" id="input_mensagem" placeholder="Mensagem">
@@ -116,9 +126,9 @@
         
         `
     }
-
+    var avaliacao = 0
     function Avaliar(){
-        var qtdEstrelasVar = 0
+        var qtdEstrelasVar = avaliacao
         var mensagem_avaliacaoVar = input_mensagem.value
         
         fetch("/usuarios/cadastrarAvaliacao", {

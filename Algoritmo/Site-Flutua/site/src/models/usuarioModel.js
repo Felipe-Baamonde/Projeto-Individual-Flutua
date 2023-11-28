@@ -32,7 +32,7 @@ function cadastrarAvaliacao(qtdEstrelas, mensagem_avaliacao, idUsuario){
 
 function VerAvaliacao(){
     var instrucao = `
-    SELECT usuario.nome, qtdEstrelas, mensagem from Avaliacao join usuario on fk_idUsuario = idUsuario;
+    SELECT usuario.nome as nome, qtdEstrelas, mensagem from Avaliacao join usuario on fk_idUsuario = idUsuario;
     `;
     return database.executar(instrucao);
 }
