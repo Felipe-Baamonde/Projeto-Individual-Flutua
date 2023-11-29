@@ -211,6 +211,7 @@ html {
     color: #FDFDFD;
     flex-direction: column;
     height: auto;
+    align-items: center;
 }
 .avaliacoes .boxMensagem{
     display: flex;
@@ -246,6 +247,19 @@ html {
     display: flex;
     width: 200px;
     margin-left: 20px;
+}
+.avaliacoes select{
+        background-color: transparent;
+        color: #FDFDFD;
+        font-size: 20px;
+        border-radius: 20px;
+        border-color:  rgb(51, 51, 51);
+        text-align: center;
+        cursor: pointer;
+        width: 200px;
+}
+.avaliacoes option{
+    background-color: rgb(51, 51, 51);
 }
 .mensagem h3 img{
     margin-left: 10px;

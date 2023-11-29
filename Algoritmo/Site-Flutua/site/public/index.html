@@ -15,12 +15,13 @@
     <div class="header">
         <div class="container">
             <div class="logo">
-                <a href="Home.html"><img src="assets/images/cloud (1).png"></a>
-                <a href="Home.html"><span>Flutua</span></a>
+                <a href="index.html"><img src="assets/images/Documentação-Flutua-removebg-preview.png"></a>
+                <!-- <a href="index.html"><span>Flutua</span></a> -->
             </div>
             <ul class="sections">
                 <li> <a href="#sobre">Sobre</a></li>
                 <li><a href="#sectionPlanos">Planos</a> </li>
+                <li><a href="#avaliacoes">Avaliações</a> </li>
                 <li><a href="Login.html">Entrar</a></li>
             </ul>
         </div>
@@ -51,11 +52,11 @@
                 dispositivo em qualquer lugar do mundo, basta estar conectado.</h2>
         </div>
     </div>
-
-    <div id="sectionPlanos" class="conheça">
+    <section id="sectionPlanos"></section>
+    <div class="conheça">
         <h1>Conheça nossos planos</h1><br>
     </div>
-
+    
     <div class="planos">
         <div class="container">
             <div class="boxes">
@@ -102,9 +103,19 @@
 
         </div>
     </div>
-
+    <section id="avaliacoes"></section>
     <div class="avaliacoes">
         <h1>Avaliações dos nossos clientes</h1>
+
+        <select name="" id="filtro" onchange="VerAvaliacoes()">
+            <option value="0">Todas Avaliações</option>
+            <option value="5">5 Estrelas</option>
+            <option value="4">4 Estrelas</option>
+            <option value="3">3 Estrelas</option>
+            <option value="2">2 Estrelas</option>
+            <option value="1">1 Estrela</option>
+        </select>
+
         <div class="container">
             <div class="boxMensagem" id="mensagem">
             </div>
@@ -143,6 +154,9 @@
     var listaAvaliacoes = [];
     urlEstrela = '<img src="assets/images/star1.png">'
     function VerAvaliacoes() {
+        mensagem.innerHTML = ``
+        var avaliacoesMostradas = 0
+        var filtroEstrelas = filtro.value
 
 
         fetch("/usuarios/VerAvaliacao").then(res => {
@@ -154,21 +168,132 @@
             .then(res => {
                 listaAvaliacoes = res;
                 for (var i = 0; i < listaAvaliacoes.length; i++) {
-                    mensagem.innerHTML += `
-                        <div class="mensagem" >
+                    // SEM FILTRO- TODAS AS AVALIAÇÕES
+                    if (filtroEstrelas == 0) {
+                        mensagem.innerHTML += `
+                            <div class="mensagem" >
+                    
+                    <h3><img src="assets/images/customer.png">${listaAvaliacoes[i].nome}</h3>
+    
+                <span id="estrelasAvaliacao">
+                    ${urlEstrela.repeat(listaAvaliacoes[i].qtdEstrelas)}    
+                </span>
+                <span id="mensagemAvaliacao">
+                    ${listaAvaliacoes[i].mensagem}
+                </span>
+    
+            </div>
+                            `
+                    avaliacoesMostradas++
+                        
+                    }
+                    // fILTRO 5 ESTRELAS
+                    else if (filtroEstrelas == 5 && listaAvaliacoes[i].qtdEstrelas == 5) {
+                        mensagem.innerHTML += `
+                            <div class="mensagem" >
+                    
+                    <h3><img src="assets/images/customer.png">${listaAvaliacoes[i].nome}</h3>
+    
+                <span id="estrelasAvaliacao">
+                    ${urlEstrela.repeat(listaAvaliacoes[i].qtdEstrelas)}    
+                </span>
+                <span id="mensagemAvaliacao">
+                    ${listaAvaliacoes[i].mensagem}
+                </span>
+    
+            </div>
+                            `
+                            avaliacoesMostradas++
+                        
+                    }
+                    // FILTRO 4 ESTRELAS
+                    else if (filtroEstrelas == 4 && listaAvaliacoes[i].qtdEstrelas == 4) {
+                        mensagem.innerHTML += `
+                            <div class="mensagem" >
+                    
+                    <h3><img src="assets/images/customer.png">${listaAvaliacoes[i].nome}</h3>
+    
+                <span id="estrelasAvaliacao">
+                    ${urlEstrela.repeat(listaAvaliacoes[i].qtdEstrelas)}    
+                </span>
+                <span id="mensagemAvaliacao">
+                    ${listaAvaliacoes[i].mensagem}
+                </span>
+    
+            </div>
+                            `
+                            avaliacoesMostradas++
+                        
+                    }
+                    // FILTRO 3 ESTRELAS
+                    else if (filtroEstrelas == 3 && listaAvaliacoes[i].qtdEstrelas == 3) {
+                        mensagem.innerHTML += `
+                            <div class="mensagem" >
+                    
+                    <h3><img src="assets/images/customer.png">${listaAvaliacoes[i].nome}</h3>
+    
+                <span id="estrelasAvaliacao">
+                    ${urlEstrela.repeat(listaAvaliacoes[i].qtdEstrelas)}    
+                </span>
+                <span id="mensagemAvaliacao">
+                    ${listaAvaliacoes[i].mensagem}
+                </span>
+    
+            </div>
+                            `
+                            avaliacoesMostradas++
+                        
+                    }
+                    // FILTRO 2 ESTRELAS
+                    else if (filtroEstrelas == 2 && listaAvaliacoes[i].qtdEstrelas == 2) {
+                        mensagem.innerHTML += `
+                            <div class="mensagem" >
+                    
+                    <h3><img src="assets/images/customer.png">${listaAvaliacoes[i].nome}</h3>
+    
+                <span id="estrelasAvaliacao">
+                    ${urlEstrela.repeat(listaAvaliacoes[i].qtdEstrelas)}    
+                </span>
+                <span id="mensagemAvaliacao">
+                    ${listaAvaliacoes[i].mensagem}
+                </span>
+    
+            </div>
+                            `
+                            avaliacoesMostradas++
+                        
+                    }
+                    // FILTRO 1 ESTRELA
+                    else if (filtroEstrelas == 1 && listaAvaliacoes[i].qtdEstrelas == 1) {
+                        mensagem.innerHTML += `
+                            <div class="mensagem" >
+                    
+                    <h3><img src="assets/images/customer.png">${listaAvaliacoes[i].nome}</h3>
+    
+                <span id="estrelasAvaliacao">
+                    ${urlEstrela.repeat(listaAvaliacoes[i].qtdEstrelas)}    
+                </span>
+                <span id="mensagemAvaliacao">
+                    ${listaAvaliacoes[i].mensagem}
+                </span>
+    
+            </div>
+                            `
+                            avaliacoesMostradas++
+                        
+                    }
                 
-                <h3><img src="assets/images/customer.png">${listaAvaliacoes[i].nome}</h3>
 
-            <span id="estrelasAvaliacao">
-                ${urlEstrela.repeat(listaAvaliacoes[i].qtdEstrelas)}    
-            </span>
-            <span id="mensagemAvaliacao">
-                ${listaAvaliacoes[i].mensagem}
-            </span>
 
-        </div>
-                        `
 
+                }
+                if (avaliacoesMostradas == 0) {
+                    mensagem.innerHTML += `
+                    <h2>Nenhuma avaliação encontrada :(</h2>
+                    `
+                }
+                // MOSTRAR QUANTIDADE DE AVALIAÇÕES
+                else{
 
                 }
             })

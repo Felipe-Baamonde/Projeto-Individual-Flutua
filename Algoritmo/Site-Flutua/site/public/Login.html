@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="logo_login">
-        <img src="assets/images/cloud (1).png">
+        <a href="index.html"><img src="assets/images/Documentação-Flutua-removebg-preview.png"></a>
         <!-- <span>Flutua</span> -->
     </div>
 
@@ -25,14 +25,14 @@
                 <input type="password" placeholder="********" id="senha_login"><br><br>
 
                     <div class="alerta_erro">
-                <div class="card_erro" id="cardErro">
-                  <span id="mensagem_erro"></span>
-                </div>
+                <span class="card_erro" id="cardErro">
+        
+                </span>
               </div>
 
                 <div class="form">
                     <button onclick="entrar()">Entrar</button><br>
-                    <button><a href="Cadastro.html">ou cadastre-se</a></button>
+                    <a href="Cadastro.html"><button> ou cadastre-se</button></a>
 
                 </div>
 
@@ -54,8 +54,8 @@
         var senhaVar = senha_login.value;
 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Email ou Senha incorretos!";
+            // cardErro.style.display = "block"
+            cardErro.innerHTML = "Email ou Senha incorretos!";
             // finalizarAguardar();
             return false;
         }

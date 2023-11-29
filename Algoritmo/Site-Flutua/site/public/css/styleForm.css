@@ -14,12 +14,16 @@ body{
     position: relative;
     align-items: center;
     justify-content: center;
+    margin-top: 50px;
+    margin-bottom:50px;
 }
 .logo_login img{
-    width: 300px;
+    width: 250px;
 }
 .logo_login a{
     text-decoration: none;
+    list-style: none;
+
 }
 .logo_login span{
     position: relative;
@@ -123,11 +127,11 @@ body{
     list-style: none;
     color: #FDFDFD;
 }
-.form button:hover, a:hover{
+.form button:hover{
     color: rgb(45, 128, 242);
     transition: .5s;
 }
-.form button:active, a:active {
+.form button:active{
     background-color: rgb(45, 128, 242);  
     transition: background 0s;
     color: #FDFDFD;
