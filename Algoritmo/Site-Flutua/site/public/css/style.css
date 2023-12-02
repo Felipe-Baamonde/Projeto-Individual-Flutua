@@ -403,6 +403,42 @@ html {
 .estrelas img{
     width: 25px;
 }
+#input_mensagem {
+    width: 300px;
+    height: 100px;
+}
+
+.media{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 3px rgb(45, 128, 242);
+    border-radius: 50px;
+    margin-bottom: 50px;
+    width: 400px;
+    height: 200px;
+}
+.media #mediaNota {
+    font-size: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: linear-gradient(to right,#001fff, #8406d6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    margin-left: 15px;
+}
+.media #qtdAvaliacao{
+    font-size: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: linear-gradient(to right,#001fff, #8406d6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    margin-left: 15px;
+}
 
 
 
