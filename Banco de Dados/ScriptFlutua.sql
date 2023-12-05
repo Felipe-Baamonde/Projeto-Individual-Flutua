@@ -21,7 +21,7 @@ idUsuario int primary key auto_increment,
 nome varchar(45),
 sobrenome varchar(45),
 dataNasc date,
-email varchar(45),
+email  varchar(45) unique,
 senha varchar(45),
 fk_idPlanoUsuario int,
 foreign key (fk_idPlanoUsuario) references Plano(idPlano));
