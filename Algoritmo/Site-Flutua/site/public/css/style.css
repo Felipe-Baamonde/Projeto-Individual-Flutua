@@ -411,6 +411,33 @@ html {
     height: 400px;
 
 }
+.avaliar .escrever{
+    display: flex;
+    flex-direction: column;
+    justify-content:center ;
+    align-items: center;
+    width: 100%;
+}
+.escrever button{
+    font-size: 20px;
+    background-color: transparent;
+    border: 2px solid rgb(45, 128, 242);
+    color: #FDFDFD;
+    font-weight: 400;
+    border-radius: 20px;
+    width: 200px;
+    cursor: pointer;
+}
+
+.escrever button:hover{
+    color: rgb(45, 128, 242);
+    transition: .5s;
+}
+.escrever button:active {
+    background-color: rgb(45, 128, 242);  
+    transition: background 0s;  
+    color: #FDFDFD;
+  }
 .estrelas img{
     width: 25px;
 }
